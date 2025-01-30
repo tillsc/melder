@@ -3,6 +3,11 @@ source "https://rubygems.org"
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.1"
 
+gem "sprockets-rails"
+gem "sassc-rails"
+gem 'bootstrap', '~> 5.3'
+gem "bootstrap_form", "~> 5.4"
+
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
 
@@ -16,6 +21,11 @@ gem "stimulus-rails"
 gem "jbuilder"
 
 gem "mysql2"
+
+# Use Capistrano for deployment
+gem 'capistrano-rails', group: :development
+gem 'capistrano-passenger', group: :development
+gem 'capistrano-rbenv', group: :development
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
@@ -43,6 +53,8 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
+
+  gem "webrick"
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"

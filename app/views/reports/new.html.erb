@@ -1,0 +1,22 @@
+<%= bootstrap_form_for(@report) do |f| %>
+  <%= f.number_field :longitude, required: true %>
+  <%= f.number_field :latitude, required: true %>
+
+  <%= f.datetime_field :happened_at, required: true %>
+
+  <%= f.text_field :reporter_first_name, required: true %>
+  <%= f.text_field :reporter_last_name, required: true %>
+
+  <%= f.text_field :reporter_street_and_house_number %>
+  <%= f.email_field :reporter_email %>
+  <%= f.text_field :reporter_telefone %>
+
+
+  <%= f.text_field :what_happened %>
+
+  <%= f.text_field :offender_description %>
+
+  <%= f.check_box :is_public %>
+
+  <%= f.submit %>
+<% end %>

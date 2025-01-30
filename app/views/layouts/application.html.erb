@@ -1,15 +1,51 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Melder</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-  </head>
+  <!-- Bootstrap CSS -->
+  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
 
-  <body>
-    <%= yield %>
-  </body>
+  <title>Melder</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Melder</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link <%= 'active' if params[:controller] == 'dashboard' %>" aria-current="page" href="<%= root_url %>">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link <%= 'active' if params[:controller] == 'reports' && %w(new create).include?(params[:action]) %>" aria-current="page" href="<%= new_report_url %>">Neue Meldung</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+  <% if @title %>
+    <h1><%= @title %></h1>
+  <% end %>
+
+  <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %>">
+      <%= value.html_safe %>
+    </div>
+  <% end %>
+
+  <%= yield %>
+</div>
+
+</body>
 </html>
