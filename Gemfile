@@ -8,6 +8,8 @@ gem "sassc-rails"
 gem 'bootstrap', '~> 5.3'
 gem "bootstrap_form", "< 5.4"
 
+gem "ffi", "< 1.17.0"
+
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
 
